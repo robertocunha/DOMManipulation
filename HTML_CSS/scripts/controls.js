@@ -9,5 +9,7 @@ hideButton.addEventListener("click", () => {
 });
 
 showButton.addEventListener("click", () => {
-    textP.style.display = "block";
+    if(textP.style.display === "none") {
+        textP.style.display = "block";
+    }
 });
