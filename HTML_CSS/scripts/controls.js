@@ -6,23 +6,15 @@ const textP = document.getElementById("textPId");
 
 let visible = true;
 
-function toggleOpacity (element, visible) {
-    element.style.opacity = visible? 100 : 0;
+function updateVisibility(visibleState) {
+    visible = visibleState;
+    textP.style.opacity = visible ? '1' : '0';
+    visibleCheckbox.checked = visible;
 }
 
-hideButton.addEventListener("click", () => {
-    visible = false;
-    toggleOpacity(textP, visible);
-    visibleCheckbox.checked = visible;
-});
-
-showButton.addEventListener("click", () => {
-    visible = true;
-    toggleOpacity(textP, visible);
-    visibleCheckbox.checked = visible;
-});
+hideButton.addEventListener("click", () => updateVisibility(false));
+showButton.addEventListener("click", () => updateVisibility(true));
 
 visibleCheckbox.addEventListener("change", (event) => {
-    visible = event.currentTarget.checked;
-    toggleOpacity(textP, visible);
-})
+    updateVisibility(event.currentTarget.checked);
+});
