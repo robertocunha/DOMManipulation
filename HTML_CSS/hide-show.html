@@ -10,20 +10,26 @@
         <h1>Hiding and Showing an Element</h1>
         <section class="text-controls-section">
             <h2>Simplest Form</h2>
-
-            <p id="textPId">A</p>
-
-            <button id="hideButtonId">Hide</button>
-            <button id="showButtonId">Show</button>
-
-            <input type="checkbox" id="visibleCheckBoxId">
-            <label for="visibleCheckBoxId">Visible</label>
-
-            <input type="radio" name="visibility" id="showRadioId">
-            <label for="showRadioId">Show</label>
-
-            <input type="radio" name="visibility" id="hideRadioId">
-            <label for="hideRadioId">Hide</label>
+            <div class="panel">
+                <p id="textPId">A</p>
+                <div>
+                    <div class="input-line">
+                        <input type="checkbox" id="visibleCheckBoxId">
+                        <label for="visibleCheckBoxId">Visible</label> 
+                    </div>
+                    <div class="input-line">
+                        <button id="hideButtonId">Hide</button>
+                        <button id="showButtonId">Show</button> 
+                    </div>
+                    <div class="input-line">
+                        <input type="radio" name="visibility" id="showRadioId">
+                        <label for="showRadioId">Show</label> 
+            
+                        <input type="radio" name="visibility" id="hideRadioId">
+                        <label for="hideRadioId">Hide</label>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </body>
