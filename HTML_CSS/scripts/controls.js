@@ -3,11 +3,9 @@ const showButton = document.getElementById("showButtonId");
 const textP = document.getElementById("textPId");
 
 hideButton.addEventListener("click", () => {
-    textP.style.display = "none";
+    textP.style.opacity = 0;
 });
 
 showButton.addEventListener("click", () => {
-    if(textP.style.display === "none") {
-        textP.style.display = "block";
-    }
+    textP.style.opacity = 100;
 });
