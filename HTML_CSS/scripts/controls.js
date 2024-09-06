@@ -24,9 +24,7 @@ function updateVisibility(visibleState) {
 hideButton.addEventListener("click", () => updateVisibility(false));
 showButton.addEventListener("click", () => updateVisibility(true));
 
-visibleCheckbox.addEventListener("change", (event) => {
-    updateVisibility(event.currentTarget.checked);
-});
+visibleCheckbox.addEventListener("change", (event) => updateVisibility(event.currentTarget.checked));
 
 hideRadio.addEventListener("change", () => updateVisibility(false));
 showRadio.addEventListener("change", () => updateVisibility(true));
