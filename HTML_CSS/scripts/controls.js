@@ -24,7 +24,7 @@ function syncControlsWithVisibility() {
     hideRadio.checked = !visible;
 }
 
-function updateVisibility(visibleState) {
+function setVisibility(visibleState) {
     setTextVisibility(visibleState);
     syncControlsWithVisibility();
 }
@@ -32,7 +32,7 @@ function updateVisibility(visibleState) {
 // Event listeners
 hideButton.addEventListener("click", () => {
     try {
-        updateVisibility(false);
+        setVisibility(false);
     } catch (err) {
         console.error(err);
     }
@@ -40,7 +40,7 @@ hideButton.addEventListener("click", () => {
 
 showButton.addEventListener("click", () => {
     try {
-        updateVisibility(true);
+        setVisibility(true);
     } catch (err) {
         console.error(err);
     }
@@ -48,7 +48,7 @@ showButton.addEventListener("click", () => {
 
 visibleCheckbox.addEventListener("change", (event) => {
     try {
-        updateVisibility(event.currentTarget.checked);
+        setVisibility(event.currentTarget.checked);
     } catch (err) {
         console.error(err);
     }
@@ -56,7 +56,7 @@ visibleCheckbox.addEventListener("change", (event) => {
 
 hideRadio.addEventListener("change", () => {
     try {
-        updateVisibility(false);
+        setVisibility(false);
     } catch (err) {
         console.error(err);
     }
@@ -64,7 +64,7 @@ hideRadio.addEventListener("change", () => {
 
 showRadio.addEventListener("change", () => {
     try {
-        updateVisibility(true);
+        setVisibility(true);
     } catch (err) {
         console.error(err);
     }
