@@ -6,6 +6,8 @@ const showRadio = document.getElementById("showRadioId");
 const textP = document.getElementById("textPId");
 
 let visible = true;
+syncControlsWithVisibility();
+
 
 function setTextVisibility(visibleState) {
     if (typeof visibleState !== "boolean") {
