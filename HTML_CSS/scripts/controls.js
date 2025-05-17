@@ -3,28 +3,67 @@ const showButton = document.getElementById("showButtonId");
 const visibleCheckbox = document.getElementById("visibleCheckBoxId");
 const hideRadio = document.getElementById("hideRadioId");
 const showRadio = document.getElementById("showRadioId");
-
 const textP = document.getElementById("textPId");
 
 let visible = true;
 
-function updateVisibility(visibleState) {
-    visible = visibleState;
-    textP.style.opacity = visible ? '1' : '0';
-
-    visibleCheckbox.checked = visible;
-
-    if (visible) {
-        showRadio.checked = true;
-    } else {
-        hideRadio.checked = true;
+function setTextVisibility(visibleState) {
+    if (typeof visibleState !== "boolean") {
+        throw new Error(`setTextVisibility: expected boolean, got ${typeof visibleState}`);
     }
+
+    visible = visibleState;
+    textP.style.opacity = visible ? "1" : "0";
 }
 
-hideButton.addEventListener("click", () => updateVisibility(false));
-showButton.addEventListener("click", () => updateVisibility(true));
+function syncControlsWithVisibility() {
+    visibleCheckbox.checked = visible;
+    showRadio.checked = visible;
+    hideRadio.checked = !visible;
+}
 
-visibleCheckbox.addEventListener("change", (event) => updateVisibility(event.currentTarget.checked));
+function updateVisibility(visibleState) {
+    setTextVisibility(visibleState);
+    syncControlsWithVisibility();
+}
 
-hideRadio.addEventListener("change", () => updateVisibility(false));
-showRadio.addEventListener("change", () => updateVisibility(true));
+// Event listeners
+hideButton.addEventListener("click", () => {
+    try {
+        updateVisibility(false);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+showButton.addEventListener("click", () => {
+    try {
+        updateVisibility(true);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+visibleCheckbox.addEventListener("change", (event) => {
+    try {
+        updateVisibility(event.currentTarget.checked);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+hideRadio.addEventListener("change", () => {
+    try {
+        updateVisibility(false);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+showRadio.addEventListener("change", () => {
+    try {
+        updateVisibility(true);
+    } catch (err) {
+        console.error(err);
+    }
+});
