@@ -9,13 +9,17 @@ let visible = true;
 syncControlsWithVisibility(visible);
 
 function setTextVisibility(visibleState) {
-    textP.style.opacity = visibleState ? "1" : "0";
+    textP.classList.toggle("visible", visibleState);
+    textP.classList.toggle("hidden", !visibleState);
 }
 
 function syncControlsWithVisibility(visibleState = visible) {
     visibleCheckbox.checked = visible;
     showRadio.checked = visible;
     hideRadio.checked = !visible;
+
+    showButton.classList.toggle("active", visibleState);
+    hideButton.classList.toggle("active", !visibleState);
 }
 
 function setVisibility(visibleState) {

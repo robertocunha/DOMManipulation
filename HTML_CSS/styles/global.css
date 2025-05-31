@@ -34,3 +34,18 @@ p {
     text-align: center;
     margin-bottom: 1rem;
 }
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+button.active {
+  background-color: #007bff;
+  color: white;
+}
