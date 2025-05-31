@@ -6,13 +6,16 @@ const showRadio = document.getElementById("showRadioId");
 const textP = document.getElementById("textPId");
 
 let visible = true;
-syncControlsWithVisibility();
+syncControlsWithVisibility(visible);
 
 function setTextVisibility(visibleState) {
     textP.style.opacity = visibleState ? "1" : "0";
 }
 
-function syncControlsWithVisibility() {
+function syncControlsWithVisibility(visibleState = visible) {
+    if (typeof visibleState !== "boolean") {
+        throw new Error(`syncControlsWithVisibility: expected boolean, got ${typeof visibleState}`);
+    }
     visibleCheckbox.checked = visible;
     showRadio.checked = visible;
     hideRadio.checked = !visible;
