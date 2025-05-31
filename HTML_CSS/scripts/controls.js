@@ -8,14 +8,8 @@ const textP = document.getElementById("textPId");
 let visible = true;
 syncControlsWithVisibility();
 
-
 function setTextVisibility(visibleState) {
-    if (typeof visibleState !== "boolean") {
-        throw new Error(`setTextVisibility: expected boolean, got ${typeof visibleState}`);
-    }
-
-    visible = visibleState;
-    textP.style.opacity = visible ? "1" : "0";
+    textP.style.opacity = visibleState ? "1" : "0";
 }
 
 function syncControlsWithVisibility() {
@@ -25,6 +19,10 @@ function syncControlsWithVisibility() {
 }
 
 function setVisibility(visibleState) {
+    if (typeof visibleState !== "boolean") {
+        throw new Error(`setVisibility: expected boolean, got ${typeof visibleState}`);
+    }
+    visible = visibleState;
     setTextVisibility(visibleState);
     syncControlsWithVisibility();
 }
