@@ -13,9 +13,6 @@ function setTextVisibility(visibleState) {
 }
 
 function syncControlsWithVisibility(visibleState = visible) {
-    if (typeof visibleState !== "boolean") {
-        throw new Error(`syncControlsWithVisibility: expected boolean, got ${typeof visibleState}`);
-    }
     visibleCheckbox.checked = visible;
     showRadio.checked = visible;
     hideRadio.checked = !visible;
