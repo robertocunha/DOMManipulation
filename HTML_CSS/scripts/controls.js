@@ -1,3 +1,6 @@
+// https://chatgpt.com/share/68431414-6e94-8008-8fe6-bc3625f7be83
+// Há mais três sugestões que valem a pena analisar
+
 const hideButton = document.getElementById("hideButtonId");
 const showButton = document.getElementById("showButtonId");
 const visibleCheckbox = document.getElementById("visibleCheckBoxId");
@@ -13,23 +16,27 @@ function setTextVisibility(visibleState) {
     textP.classList.toggle("hidden", !visibleState);
 }
 
-function syncControlsWithVisibility(visibleState = visible) {
-    visibleCheckbox.checked = visible;
-    showRadio.checked = visible;
-    hideRadio.checked = !visible;
+function syncControlsWithVisibility(currentState) {
+    visibleCheckbox.checked = currentState;
 
-    showButton.classList.toggle("active", visibleState);
-    hideButton.classList.toggle("active", !visibleState);
+    showRadio.checked = currentState;
+    hideRadio.checked = !currentState;
+
+    showButton.classList.toggle("active", currentState);
+    hideButton.classList.toggle("active", !currentState);
 }
 
-function setVisibility(visibleState) {
-    if (typeof visibleState !== "boolean") {
-        throw new Error(`setVisibility: expected boolean, got ${typeof visibleState}`);
+
+function setVisibility(newState) {
+    if (typeof newState !== "boolean") {
+        throw new Error(`setVisibility: expected boolean, got ${typeof newState}`);
     }
-    visible = visibleState;
-    setTextVisibility(visibleState);
-    syncControlsWithVisibility();
+
+    visible = newState;
+    setTextVisibility(newState);
+    syncControlsWithVisibility(newState);
 }
+
 
 // Event listeners
 hideButton.addEventListener("click", () => {
